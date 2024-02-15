@@ -310,12 +310,11 @@ From a system with Podman, Docker, or Rancher desktop installed, run
 <Tabs groupId="os">
   <TabItem value="linux" label="Linux" default>
 
-TODO: Add elemental rpms
-
 ```bash
 mkdir -p eib_quickstart/base-images
 mkdir -p eib_quickstart/elemental
-mkdir -p eib_quickstart/rpms
+
+cp <PATH TO SLE MICRO SELF INSTALL ISO> eib_quickstart/base-images/
 
 curl <REGISTRATION URL FROM ABOVE> -o eib_quickstart/elemental/elemental.yaml
 
@@ -325,10 +324,9 @@ image:
     imageType: iso
     baseImage: SLE-Micro.x86_64-5.5.0-Default-SelfInstall-GM.install.iso
     outputImageName: elemental-image.iso
-
 HEREDOC
 
-docker run --rm -it -v $PWD/eib_quickstart/:/eib registry.opensuse.org/home/atgracey/eib/container/containerfile/eib:latest /usr/bin/eib -config-file eib-config.yaml -config-dir /eib -build-dir /eib/_build
+docker run --privileged --rm -it -v $PWD/eib_quickstart/:/eib registry.opensuse.org/home/atgracey/eib/container/containerfile/eib:latest /usr/bin/eib -config-file eib-config.yaml -config-dir /eib -build-dir /eib/_build
 
 TODO: update image to released image on release
 
@@ -349,7 +347,7 @@ Podman can be used in place of docker
 </Tabs>
 
 
-If you are booting a physical device, we need to burn the image to a USB flash drive. This can be done with:
+If you are booting a physical device, we need to burn the image to a USB flash drive. This can be done by:
 
 <Tabs groupId="os">
   <TabItem value="linux" label="Linux" default>
