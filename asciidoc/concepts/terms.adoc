@@ -11,8 +11,10 @@ ifdef::env-github[]
 endif::[]
 
 There is a lot of terminology used in this space. Let's keep track of what means what. 
-
-Kubernetes:: TBD
-Container:: TBD
-Cluster API:: TBD
+Cloud Native:: TODO
+Kubernetes:: TODO
+Container:: TODO
+Cluster API:: TODO
  
+Management Cluster:: TODO
+Downstream Cluster:: TODO
